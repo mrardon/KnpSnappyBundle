@@ -81,7 +81,10 @@ class LoggableGenerator implements GeneratorInterface
      */
     public function setOption($name, $value)
     {
-        $this->logDebug(sprintf('Set option %s = %s.', $name, $value));
+        if (is_string($value))
+        {
+            $this->logDebug(sprintf('Set option %s = %s.', $name, $value));
+        }
 
         return $this->generator->setOption($name, $value);
     }
